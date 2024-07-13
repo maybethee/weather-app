@@ -1,6 +1,8 @@
 import "./style.css";
 
-const city = "london";
+let temp = null;
+let conditions = "";
+let icon = "";
 
 async function fetchCurrentWeather(city) {
   try {
@@ -27,4 +29,10 @@ async function fetchCurrentWeather(city) {
   }
 }
 
-fetchCurrentWeather(city);
+const searchBtn = document.querySelector("button");
+
+searchBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  const city = document.querySelector("input").value;
+  fetchCurrentWeather(city);
+});
