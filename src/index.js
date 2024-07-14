@@ -1,4 +1,5 @@
 import "./style.css";
+const iconsContext = require.context("./icons", false, /\.png$/);
 
 const tempDisplay = document.querySelector(".temp");
 const conditionsDisplay = document.querySelector(".conditions");
@@ -25,6 +26,7 @@ async function fetchCurrentWeather(city) {
     temp = Math.round(json.currentConditions.temp);
     const conditions = json.currentConditions.conditions;
     const icon = json.currentConditions.icon;
+    // getIconSrc(icon);
 
     return {
       temp,
@@ -41,6 +43,11 @@ async function fetchCurrentWeather(city) {
   }
 }
 
+function getIconSrc(iconName) {
+  // Use the context to get the src for a specific icon
+  return iconsContext(`./${iconName}.png`);
+}
+
 const form = document.querySelector("form");
 
 form.addEventListener("submit", async (event) => {
@@ -51,7 +58,9 @@ form.addEventListener("submit", async (event) => {
 
   tempDisplay.textContent = `${temp}°F`;
   conditionsDisplay.textContent = conditions;
-  iconDisplay.textContent = icon;
+
+  iconDisplay.src = getIconSrc(icon);
+
   convertBtn.setAttribute("style", "visibility: visible");
   convertBtn.textContent = "°C";
 });
