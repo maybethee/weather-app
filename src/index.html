@@ -6,14 +6,18 @@
     <title>Weather App</title>
   </head>
   <body>
-    <h1>Current Weather</h1>
-
     <form action="">
       <label for="search">City:</label><br />
       <input type="search" id="search" name="search" />
       <button type="submit" value="Search">Search</button>
     </form>
 
-    <div class="weather-display"></div>
+    <div class="weather-display">
+      <h1>Current Weather:</h1>
+      <p class="temp"></p>
+      <p class="conditions"></p>
+      <p class="icon"></p>
+      <button class="unitGroup"></button>
+    </div>
   </body>
 </html>
