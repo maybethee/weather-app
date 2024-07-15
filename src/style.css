@@ -52,6 +52,128 @@ table {
   border-spacing: 0;
 }
 
+html {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: rgb(51, 255, 238);
+  background: linear-gradient(
+    29deg,
+    rgba(51, 255, 238, 1) 0%,
+    rgba(13, 194, 255, 1) 33%,
+    rgba(6, 48, 205, 1) 66%,
+    rgba(0, 3, 97, 1) 100%
+  );
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
 h1 {
-  color: blueviolet;
+  text-align: center;
+  color: darkorange;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+h1,
+p,
+label {
+  text-shadow: rgb(255, 255, 255) 3px 0px 0px,
+    rgb(255, 255, 255) 2.83487px 0.981584px 0px,
+    rgb(255, 255, 255) 2.35766px 1.85511px 0px,
+    rgb(255, 255, 255) 1.62091px 2.52441px 0px,
+    rgb(255, 255, 255) 0.705713px 2.91581px 0px,
+    rgb(255, 255, 255) -0.287171px 2.98622px 0px,
+    rgb(255, 255, 255) -1.24844px 2.72789px 0px,
+    rgb(255, 255, 255) -2.07227px 2.16926px 0px,
+    rgb(255, 255, 255) -2.66798px 1.37182px 0px,
+    rgb(255, 255, 255) -2.96998px 0.42336px 0px,
+    rgb(255, 255, 255) -2.94502px -0.571704px 0px,
+    rgb(255, 255, 255) -2.59586px -1.50383px 0px,
+    rgb(255, 255, 255) -1.96093px -2.27041px 0px,
+    rgb(255, 255, 255) -1.11013px -2.78704px 0px,
+    rgb(255, 255, 255) -0.137119px -2.99686px 0px,
+    rgb(255, 255, 255) 0.850987px -2.87677px 0px,
+    rgb(255, 255, 255) 1.74541px -2.43999px 0px,
+    rgb(255, 255, 255) 2.44769px -1.73459px 0px,
+    rgb(255, 255, 255) 2.88051px -0.838247px 0px;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  align-self: flex-start;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+::placeholder {
+  color: rgb(221, 195, 195);
+}
+
+input {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0.5rem 0 1rem 0;
+  padding: 5px;
+  border: 3px solid darkblue;
+  border-radius: 5px;
+  background-color: rgb(75, 119, 189);
+}
+
+button {
+  padding: 0.4rem;
+  border: solid salmon;
+  border-radius: 8px;
+  background-color: #ffb6c1;
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ec919f;
+}
+
+button:active {
+  background-color: #dc6e7f;
+}
+
+.weather-display {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+.temp {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.conditions {
+  font-size: 0.9rem;
+}
+
+.unitGroup {
+  margin-top: 1rem;
+  border-radius: 50px;
+  padding: 0.6rem;
 }

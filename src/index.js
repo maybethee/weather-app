@@ -22,11 +22,9 @@ async function fetchCurrentWeather(city) {
       throw new Error("HTTP error " + response.status);
     }
     const json = await response.json();
-    console.log(json);
     temp = Math.round(json.currentConditions.temp);
     const conditions = json.currentConditions.conditions;
     const icon = json.currentConditions.icon;
-    // getIconSrc(icon);
 
     return {
       temp,
@@ -44,7 +42,6 @@ async function fetchCurrentWeather(city) {
 }
 
 function getIconSrc(iconName) {
-  // Use the context to get the src for a specific icon
   return iconsContext(`./${iconName}.png`);
 }
 
@@ -56,13 +53,17 @@ form.addEventListener("submit", async (event) => {
   const city = document.querySelector("input").value;
   const { temp, conditions, icon } = await fetchCurrentWeather(city);
 
-  tempDisplay.textContent = `${temp}°F`;
-  conditionsDisplay.textContent = conditions;
+  if (temp) {
+    tempDisplay.textContent = `${temp}°F`;
+    conditionsDisplay.textContent = conditions;
 
-  iconDisplay.src = getIconSrc(icon);
+    iconDisplay.src = getIconSrc(icon);
 
-  convertBtn.setAttribute("style", "visibility: visible");
-  convertBtn.textContent = "°C";
+    convertBtn.setAttribute("style", "visibility: visible");
+    convertBtn.textContent = "°C";
+  } else {
+    tempDisplay.textContent = "Whoops, that didn't work!";
+  }
 });
 
 convertBtn.addEventListener("click", () => {
